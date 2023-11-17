@@ -1,0 +1,8 @@
+services:
+  ctf:
+    build: .
+    volumes:
+      - ./:/app:ro
+    ports:
+      - 1337:1337
+    restart: unless-stopped

@@ -1,0 +1,34 @@
+{
+    "a516819e01af75f8cd03334cb3c8780b06e493e4ba45424cd184c33581c8e129": {
+        "baseurl": "http://xss1:3000",
+        "cookie": {
+            "name": "flag",
+            "value": "SPOOKTF{so_1_h34rd_you_can_s3t_html..}",
+            "domain": "xss1"
+        }
+    },
+    "470b9baec40b8172557d796badb4aa1836791fc2005df99582d06075336054e4": {
+        "baseurl": "http://xss2:3000",
+        "cookie": {
+            "name": "flag",
+            "value": "SPOOKTF{i_literally_cant_think_of_a_good_flag_name742873}",
+            "domain": "xss2"
+        }
+    },
+    "059aa2841397d9954ed99b3b065dc810c06c7e71d33e1acd8425464e0d31ae76": {
+        "baseurl": "http://xss3:3000",
+        "cookie": {
+            "name": "flag",
+            "value": "SPOOKTF{st0p_bypass1ng_my_protection5!!}",
+            "domain": "xss3"
+        }
+    },
+    "8ea4dc1b6e3bb5a9d710b01ee337bafcd26d433ef8fd3c8b73c151bf0cf89b9d": {
+        "baseurl": "http://xss4:3000",
+        "cookie": {
+            "name": "flag",
+            "value": "SPOOKTF{alr1ght_1_g1v3_up_now..}",
+            "domain": "xss4"
+        }
+    }
+}

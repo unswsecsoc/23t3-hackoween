@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Satanbolt</title>
+        <style>
+            .parent {
+                align: center;
+            }
+
+            .child {
+                display: inline-block;
+                padding: 1em;
+                vertical-align: middle;
+            }
+
+            body {
+                font-family: system-ui;
+            }
+
+            h1 {
+                font-size: 300%;
+                margin-bottom: 0.1em;
+            }
+
+            h2 {
+                margin-top: 0em;
+            }
+
+            p {
+                margin-top: 0.1em;
+            }
+
+            textarea {
+                font-family: monospace;
+                tab-size: 4;
+                width: 50em;
+                height: 40em;
+                resize: none;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <h1>Satanbolt</h1>
+            <p>Godbolt x Minimalism</p>
+            <p>Hosted with Quartz from <tt>/app/server.py</tt>.</p>
+            <button id="submit">Submit</button>
+
+            <div class="parent">
+                <div class="child">
+                    <h2>Code</h2>
+                    <textarea id="code"></textarea>
+                </div>
+                <div class="child">
+                    <h2>Output</h2>
+                    <textarea readonly id="output"></textarea>
+                </div>
+            </div>
+        </center>
+
+        <script>
+            const code = document.getElementById("code");
+            const output = document.getElementById("output");
+            const button = document.getElementById("submit");
+
+            code.addEventListener("keydown", function(event) {
+                if (event.key === "Tab") {
+                    event.preventDefault();
+                    const start = this.selectionStart;
+                    const end = this.selectionEnd;
+
+                    this.value = `${this.value.substring(0, start)}\t${this.value.substring(end)}`;
+                    this.selectionStart = start + 1;
+                    this.selectionEnd = start + 1;
+                }
+            });
+
+            code.value = "int main(void) {\n\treturn 0;\n}";
+
+            button.onclick = async () => {
+                const result = await fetch("/compile", {method: "POST", body: code.value})
+                output.value = `${await result.text()}`
+            };
+        </script>
+    </body>
+</html>
